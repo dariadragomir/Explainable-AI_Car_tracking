@@ -10,8 +10,8 @@ input_dir = '/Users/dariadragomir/AI_siemens/Task4/input'
 output_dir = '/Users/dariadragomir/AI_siemens/Task4/output'
 os.makedirs(output_dir, exist_ok=True)
 
-bad_polygon = np.array([(248, 219), (397, 228), (1252, 1044), (583, 1037)])
-worse_polygon = np.array([(134, 10), (237, 7), (682, 219), (273, 208)])
+worse_polygon = np.array([(248, 219), (397, 228), (1252, 1044), (583, 1037)])
+bad_polygon = np.array([(134, 10), (237, 7), (682, 219), (273, 208)])
 park_polygon = np.array([(533, 223), (684, 226), (1908, 988), (1534, 1040)])
 roi_polygon = np.array([(407, 229), (519, 234), (1526, 1043), (1261, 1029)])
 
