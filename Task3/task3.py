@@ -5,8 +5,8 @@ from collections import defaultdict
 
 model = YOLO("yolov8l.pt")
 
-input_dir = '/Users/dariadragomir/AI_siemens/Task3/test'
-output_dir = '/Users/dariadragomir/AI_siemens/Task3/output_test'
+input_dir = '/Users/user/Task3/input'
+output_dir = '/Users/user/Task3/output'
 
 os.makedirs(output_dir, exist_ok=True)
 
