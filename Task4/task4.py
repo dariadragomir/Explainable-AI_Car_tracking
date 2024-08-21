@@ -6,8 +6,8 @@ from collections import defaultdict
 
 model = YOLO("yolov8l.pt")
 
-input_dir = '/Users/dariadragomir/AI_siemens/Task4/input'
-output_dir = '/Users/dariadragomir/AI_siemens/Task4/output'
+input_dir = '/Users/user/Task4/input'
+output_dir = '/Users/user/Task4/output'
 os.makedirs(output_dir, exist_ok=True)
 
 worse_polygon = np.array([(248, 219), (397, 228), (1252, 1044), (583, 1037)])
