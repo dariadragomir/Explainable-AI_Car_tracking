@@ -6,13 +6,13 @@ from PIL import Image
 import torch.nn as nn
 import numpy as np
 import os, json
-
 import torch
 from torchvision import models, transforms
 from torch.autograd import Variable
 import torch.nn.functional as F
-from PIL import Image
 from lime import lime_image
+from skimage.segmentation import mark_boundaries
+
 clicked_points = [] 
 pause = False
 ok = 0
@@ -103,22 +103,20 @@ def xai(frame, bbox):
     explainer = lime_image.LimeImageExplainer()
     explanation = explainer.explain_instance(np.array(pill_transf(img)), 
                                             batch_predict, # classification function
-                                            top_labels=5, 
+                                            top_labels=12, 
                                             hide_color=0, 
                                             num_samples=1000) # number of images that will be sent to classification function
 
-    from skimage.segmentation import mark_boundaries
-    temp, mask = explanation.get_image_and_mask(explanation.top_labels[0], positive_only=True, num_features=5, hide_rest=False)
+    temp, mask = explanation.get_image_and_mask(explanation.top_labels[0], positive_only=True, num_features=12, hide_rest=False)
     img_boundry1 = mark_boundaries(temp/255.0, mask)
     plt.imshow(img_boundry1)
     plt.show()
 
-    temp, mask = explanation.get_image_and_mask(explanation.top_labels[0], positive_only=False, num_features=15, hide_rest=False)
+    temp, mask = explanation.get_image_and_mask(explanation.top_labels[0], positive_only=False, num_features=12, hide_rest=False)
     img_boundry2 = mark_boundaries(temp/255.0, mask)
     plt.imshow(img_boundry2)
     plt.show()
-        
-    
+
 def is_point_inside_bbox(px, py, bbox):     
     x1, y1, x2, y2 = bbox    
     return x1 <= px <= x2 and y1 <= py <= y2
