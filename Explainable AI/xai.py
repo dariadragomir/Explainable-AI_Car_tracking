@@ -133,13 +133,12 @@ def functie(frame, point):
         
 def click_event(event, x, y, flags, param):     
     global pause
-    if event == cv2.EVENT_LBUTTONDOWN:         # Store the coordinates of the click        
+    if event == cv2.EVENT_LBUTTONDOWN:      
         clicked_points.append((x, y))        
-        #print(f"Clicked at: ({x}, {y})") # Load the video
+        #print(f"Clicked at: ({x}, {y})") 
         pause = True
         
-video = cv2.VideoCapture('data/01.mp4')  # Replace with your video file path
-# Set the callback function to the window
+video = cv2.VideoCapture('data/01.mp4')  
 cv2.namedWindow("Video") 
 cv2.setMouseCallback("Video", click_event) 
 while video.isOpened():   
@@ -158,11 +157,11 @@ while video.isOpened():
         print(clicked_points[-1])
         
     if key == ord('q'):
-        break # Quit if 'q' is pressed 
+        break # quit if 'q' is pressed 
     elif key == ord('p'):
-        pause = not pause # Toggle pause if 'p' is pressed
+        pause = not pause # pause if 'p' is pressed
         ok = 0
     
 video.release() 
-cv2.destroyAllWindows() # Print all recorded click points
+cv2.destroyAllWindows() 
 print("All clicked points:", clicked_points)
